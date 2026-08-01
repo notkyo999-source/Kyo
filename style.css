@@ -1,0 +1,746 @@
+body{
+
+    margin:0;
+
+    width:100vw;
+
+    height:100vh;
+
+    background:linear-gradient(135deg,#ffd6e7,#ffeff5);
+
+    font-family:Arial,sans-serif;
+
+    overflow:hidden;
+
+}
+
+
+
+
+
+/* 페이지 */
+
+.page{
+
+    width:100vw;
+
+    height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    animation:fade .8s;
+
+}
+
+
+
+.hidden{
+
+    display:none;
+
+}
+
+
+
+
+
+/* 글씨 */
+
+h1{
+
+    color:#ff4d88;
+
+    font-size:50px;
+
+}
+
+
+
+p{
+
+    color:#444;
+
+    font-size:24px;
+
+    line-height:1.5;
+
+}
+
+
+
+
+
+/* 버튼 */
+
+button{
+
+
+    margin:10px;
+
+    padding:15px 35px;
+
+
+    font-size:20px;
+
+
+    border:none;
+
+
+    border-radius:50px;
+
+
+    background:#ff4d88;
+
+
+    color:white;
+
+
+    cursor:pointer;
+
+
+    transition:0.3s;
+
+
+}
+
+
+
+button:hover{
+
+
+    background:#ff77aa;
+
+
+    transform:scale(1.1);
+
+
+}
+
+
+
+
+
+
+/* 입력창 */
+
+input{
+
+
+    padding:15px;
+
+
+    font-size:22px;
+
+
+    width:150px;
+
+
+    border-radius:20px;
+
+
+    border:2px solid #ff4d88;
+
+
+    text-align:center;
+
+
+}
+
+
+
+
+
+
+
+/* 사진 */
+
+.memory-photo{
+
+
+    width:300px;
+
+
+    height:300px;
+
+
+    object-fit:cover;
+
+
+    border-radius:30px;
+
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,0.2);
+
+
+}
+
+
+
+
+
+
+
+
+
+/* 정답 폭죽 */
+
+.firework{
+
+
+    position:fixed;
+
+
+    width:90px;
+
+
+    pointer-events:none;
+
+
+    z-index:10;
+
+
+    animation:explode 1.2s forwards;
+
+
+}
+
+
+
+
+
+
+
+
+/* 오답 폭죽 */
+
+.wrong-firework{
+
+
+    position:fixed;
+
+
+    width:180px;
+
+
+    pointer-events:none;
+
+
+    z-index:10;
+
+
+    animation:wrongExplode 2.5s forwards;
+
+
+}
+
+
+
+
+
+
+
+
+/* 마지막 큰 글씨 */
+
+.final-text{
+
+
+    font-size:150px;
+
+
+    color:#ff4d88;
+
+
+    font-weight:bold;
+
+
+    animation:pulse 2s infinite;
+
+
+}
+
+
+
+
+
+
+
+
+/* 튀는 이미지 */
+
+.bounce-img{
+
+    position:fixed;
+
+    width:180px;
+
+    height:180px;
+
+    object-fit:contain;
+
+    pointer-events:none;
+
+    z-index:20;
+
+}
+
+
+
+
+
+
+
+/* 폭발 애니메이션 */
+
+@keyframes explode{
+
+
+    0%{
+
+
+        transform:scale(0.2) rotate(0deg);
+
+
+        opacity:1;
+
+
+    }
+
+
+
+    100%{
+
+
+        transform:scale(2) rotate(360deg);
+
+
+        opacity:0;
+
+
+    }
+
+
+}
+
+
+
+
+
+
+
+@keyframes wrongExplode{
+
+
+    0%{
+
+
+        transform:scale(0.2) rotate(0deg);
+
+
+        opacity:1;
+
+
+    }
+
+
+
+    50%{
+
+
+        transform:scale(2.5) rotate(180deg);
+
+
+        opacity:1;
+
+
+    }
+
+
+
+    100%{
+
+
+        transform:scale(3) rotate(360deg);
+
+
+        opacity:0;
+
+
+    }
+
+
+}
+
+
+
+
+
+
+
+@keyframes fade{
+
+
+    from{
+
+        opacity:0;
+
+    }
+
+
+    to{
+
+        opacity:1;
+
+    }
+
+
+}
+
+
+
+
+
+
+
+@keyframes pulse{
+
+
+    0%{
+
+
+        transform:scale(1);
+
+
+    }
+
+
+
+    50%{
+
+
+        transform:scale(1.15);
+
+
+    }
+
+
+
+    100%{
+
+
+        transform:scale(1);
+
+
+    }
+
+
+}
+#warning{
+
+    position:fixed;
+
+    top:50%;
+
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+
+    font-size:100px;
+
+    font-weight:900;
+
+
+    z-index:999;
+
+
+    display:none;
+
+
+    animation:
+
+    rainbow 0.5s infinite,
+
+    shake 0.2s infinite;
+
+
+    text-shadow:
+    0 0 20px white,
+    0 0 40px red;
+
+
+}
+
+
+
+
+@keyframes rainbow{
+
+
+0%{
+color:red;
+}
+
+
+20%{
+color:orange;
+}
+
+
+40%{
+color:yellow;
+}
+
+
+60%{
+color:lime;
+}
+
+
+80%{
+color:cyan;
+}
+
+
+100%{
+color:magenta;
+}
+
+
+}
+
+
+
+
+
+@keyframes shake{
+
+
+0%{
+transform:translate(-50%,-50%) rotate(-5deg);
+}
+
+
+50%{
+transform:translate(-50%,-50%) rotate(5deg);
+}
+
+
+100%{
+transform:translate(-50%,-50%) rotate(-5deg);
+}
+
+
+}
+
+#letter{
+
+    font-size:22px;
+
+    color:#444;
+
+    white-space:pre-line;
+
+    line-height:1.6;
+
+    max-width:80vw;
+
+    margin:auto;
+
+}
+
+#page9 button{
+
+    font-size:25px;
+
+    padding:15px 30px;
+
+    border-radius:30px;
+
+}
+
+#messageArea{
+
+    position:fixed;
+
+    width:100%;
+
+    height:100%;
+
+    top:0;
+
+    left:0;
+
+    pointer-events:none;
+}
+
+
+
+.love-text{
+
+    position:absolute;
+
+    font-size:48px;
+
+    font-weight:bold;
+
+    animation:appear 1s;
+
+    text-align:center;
+
+    text-shadow:0 0 10px rgba(255,255,255,0.7);
+
+}
+
+
+
+@keyframes appear{
+
+from{
+
+opacity:0;
+
+transform:scale(0);
+
+}
+
+to{
+
+opacity:1;
+
+transform:scale(1);
+
+}
+
+}
+
+
+
+.top-left{
+
+top:10%;
+
+left:10%;
+
+}
+
+
+
+.bottom-left{
+
+bottom:10%;
+
+left:10%;
+
+}
+
+
+
+.top-right{
+
+top:10%;
+
+right:10%;
+
+}
+
+
+
+.bottom-right{
+
+bottom:10%;
+
+right:10%;
+
+}
+
+
+
+.moving-center{
+
+top:40%;
+
+left:40%;
+
+animation:bounce 2s infinite;
+
+}
+
+
+
+@keyframes bounce{
+
+0%{
+
+transform:translateY(-100px);
+
+}
+
+50%{
+
+transform:translateY(100px);
+
+}
+
+100%{
+
+transform:translateY(-100px);
+
+}
+
+}
+
+#page10{
+
+    width:100vw;
+
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+}
+.ending{
+
+    color:#ff4d88;
+
+    font-size:80px;
+
+    font-weight:bold;
+
+    text-align:center;
+
+}
+.love-text{
+
+    position:absolute;
+
+    font-size:56px;
+
+    font-weight:bold;
+
+    color:#ff4d88;
+
+    text-shadow:
+        0 0 10px white,
+        0 0 20px rgba(255,255,255,.8);
+
+    animation:appear .8s;
+
+    max-width:35vw;
+
+}
